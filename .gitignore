@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+
+# 作業用メモ（GitHubには上げない）
+tmp_chat_history.md
+
+# macOS が自動で作るファイル
+.DS_Store

@@ -1,0 +1,27 @@
+# default config.yml
+
+# The host name and port to listen on.
+#
+# hostname - the address to bind the API socket to. This socket is UNAUTHENTICATED
+#            and UNENCRYPTED: anyone who can reach it can place/destroy blocks,
+#            teleport players and spawn entities. It now defaults to "localhost"
+#            (loopback only) so it is safe out of the box.
+#            Set it to "0.0.0.0" to accept connections from ANY host on the network
+#            (the old default) - only do this on a trusted/firewalled network.
+hostname: 0.0.0.0
+port: 4711
+
+# Determine whether locations are RELATIVE to the spawn point (default like pi) or ABSOLUTE
+location: RELATIVE
+
+# Determine whether hit events are triggered by LEFT clicks, RIGHT clicks or BOTH
+hitclick: RIGHT
+
+# Whether to broadcast a "Welcome <player>" message to everyone when a player joins.
+# Set to false to keep this scripting bridge silent on join.
+welcome-message: true
+
+# Maximum number of blocks a single world.getBlocks / world.setBlocks request may span.
+# Guards against a client freezing or OOM-ing the server with a huge cuboid (the work runs
+# on the main server thread). Oversized requests are rejected with "Fail". 0 disables the cap.
+max-blocks: 1000000
