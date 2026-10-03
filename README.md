@@ -13,6 +13,7 @@
 ```
 mcpi-java/
 ├── README.md              # このページ
+├── LICENSE                # ライセンス（MIT）
 ├── docker-compose.yaml    # マイクラサーバーの設定（バージョン・ポートなど）
 ├── plugins/
 │   └── RaspberryJuice/
@@ -92,3 +93,10 @@ uv sync                # Python環境の準備（初回のみ）
 | [localhost とポートって何？](docs/guide/localhost-and-ports.md) | `localhost:4711` の意味。いちばんハマりやすいところ |
 | [Paper と RaspberryJuice って何？](docs/guide/paper-and-raspberryjuice.md) | マイクラサーバー本体と、Python から操作するためのプラグイン |
 | [uv って何？ pip と何が違うの？](docs/guide/uv.md) | Python の環境をみんなで同じにする道具の話 |
+
+## ライセンス
+
+このリポジトリの中身は [MIT ライセンス](LICENSE) です。
+
+> ⚠️ サーバーを起動すると、[Minecraft の利用規約（EULA）](https://www.minecraft.net/ja-jp/eula) に同意したことになります（`docker-compose.yaml` で `EULA: "TRUE"` にしているため）。
+> Minecraft 本体・Paper・RaspberryJuice はこのリポジトリには含まれておらず、サーバーの起動時にそれぞれの配布元からダウンロードされます。

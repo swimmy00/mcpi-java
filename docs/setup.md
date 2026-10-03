@@ -252,6 +252,15 @@ mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック�
 2. `docker compose up -d` を実行する
 3. `docker compose logs -f` で `Done` が出るまで待つ
 
+### Python で `RequestError: b'player.getTile()' failed` が出る
+
+**マイクラでサーバーに入っていない** 状態で実行しています。
+
+`mc.player.getTilePos()` は「サーバーに入っているプレイヤーの位置」を取る命令なので、誰も入っていないと失敗します。
+（`mc.postToChat(...)` のように、プレイヤーがいなくても動く命令もあります）
+
+[手順7](#7-サーバーに接続する) でサーバーに入って、ワールドが表示されてから実行してください。
+
 ### Python で `ModuleNotFoundError: No module named 'mcpi'` が出る
 
 `uv run` を付けずに `python` だけで実行しています。
@@ -344,6 +353,7 @@ RaspberryJuice の設定ファイルです。デフォルトから **`hostname` 
 ```
 mcpi-java/
 ├── README.md               # 入口（概要とクイックスタート）
+├── LICENSE                 # ライセンス（MIT）
 ├── docker-compose.yaml     # マイクラサーバーの設定
 ├── plugins/
 │   └── RaspberryJuice/
