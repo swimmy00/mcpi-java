@@ -21,7 +21,7 @@
   <!-- Python（mcpi） -->
   <rect x="40" y="304" width="230" height="96" rx="12" fill="#e8f0f8" stroke="#3572a5" stroke-width="2"/>
   <text x="155" y="338" font-size="17" font-weight="bold" fill="#1f4a70" text-anchor="middle">Python（mcpi）</text>
-  <text x="155" y="364" font-size="13" fill="#555" text-anchor="middle">hello.py を実行する</text>
+  <text x="155" y="364" font-size="13" fill="#555" text-anchor="middle">sample.py を実行する</text>
   <text x="155" y="384" font-size="13" fill="#555" text-anchor="middle">サーバーに命令を送る</text>
 
   <text x="155" y="245" font-size="13" fill="#80868b" text-anchor="middle">どちらも localhost に</text>

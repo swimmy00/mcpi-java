@@ -46,7 +46,7 @@ uv sync                # Python環境の準備（初回のみ）
 > **💡 pip を使う場合**は、`uv sync` の代わりに `pip install mcpi` でOKです。
 
 1. マイクラを **バージョン 26.2** で起動して、マルチプレイ → サーバーを追加 → `localhost` に接続
-2. ワールドに入ったら、VS Code で `samples/hello.py` を開いて、右上の **▷（実行ボタン）** を押す
+2. ワールドに入ったら、VS Code で `scripts/sample.py` を開いて、右上の **▷（実行ボタン）** を押す
 
 チャットに「hogehoge」が出て、頭の上に金ブロックが置かれたら成功です！
 
@@ -61,8 +61,8 @@ mcpi-java/
 ├── plugins/
 │   └── RaspberryJuice/
 │       └── config.yml     # Python から操作するためのプラグインの設定
-├── samples/
-│   └── hello.py           # 動作確認用のサンプル ← ✏️ ここに自分のプログラムを置く
+├── scripts/
+│   └── sample.py          # 動作確認用のサンプル ← ✏️ ここに自分のプログラムを置く
 ├── pyproject.toml         # Python で使うライブラリの一覧（uv 用）
 ├── uv.lock                # ライブラリのバージョン固定（uv 用）
 ├── .python-version        # Python のバージョン（3.12）
@@ -72,7 +72,7 @@ mcpi-java/
     └── images/            # 図
 ```
 
-> ✏️ ふだん触るのは `samples/`（Python のプログラム）だけです。それ以外は環境の設定なので、基本的に変更しなくて大丈夫です。
+> ✏️ ふだん触るのは `scripts/`（Python のプログラム）だけです。それ以外は環境の設定なので、基本的に変更しなくて大丈夫です。
 >
 > 各ファイルの詳しい説明は [環境構築手順書の「13. ファイル構成」](docs/setup.md#13-ファイル構成) へ。
 

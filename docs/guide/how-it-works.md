@@ -64,9 +64,9 @@ uv が、Python 本体と `mcpi` ライブラリをこのフォルダ専用に�
 >
 > uv が何者かは [uv って何？ pip と何が違うの？](uv.md)
 
-### ④ `uv run python samples/hello.py` で命令を送る
+### ④ `uv run python scripts/sample.py` で命令を送る
 
-`hello.py` の中で、こんなやりとりが起きています。
+`sample.py` の中で、こんなやりとりが起きています。
 
 ```python
 mc = Minecraft.create()

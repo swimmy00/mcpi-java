@@ -185,7 +185,7 @@ uv sync
 
 ## 9. サンプルを動かす
 
-マイクラでサーバーに入った状態のまま、VS Code で `samples/hello.py` を開いて、右上の **▷（実行ボタン）** を押します。
+マイクラでサーバーに入った状態のまま、VS Code で `scripts/sample.py` を開いて、右上の **▷（実行ボタン）** を押します。
 
 > 実行ボタンを押す前に、VS Code の右下に表示されている Python を確認してください。違うときは、そこをクリックして選び直します。
 >
@@ -195,17 +195,17 @@ uv sync
 ターミナルから実行する場合は、次のコマンドでも同じです。
 
 ```bash
-uv run python samples/hello.py
+uv run python scripts/sample.py
 ```
 
-> **💡 pip を使う場合**: `python3 samples/hello.py`（Windows は `python samples/hello.py`）
+> **💡 pip を使う場合**: `python3 scripts/sample.py`（Windows は `python scripts/sample.py`）
 
 ゲーム内で次のようになれば、すべて成功です 🎉
 
 - チャットに「hogehoge」と表示される
 - 自分の頭の上に金ブロックが置かれる
 
-`samples/hello.py` の中身はこうなっています。
+`scripts/sample.py` の中身はこうなっています。
 
 ```python
 from mcpi.minecraft import Minecraft
@@ -228,7 +228,7 @@ mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック�
 | サーバーを起動する | `docker compose up -d` |
 | サーバーを止める | `docker compose down` |
 | ログを見る | `docker compose logs -f`（`Ctrl + C` で終了） |
-| Python を実行する | VS Code の ▷ ボタン、または `uv run python samples/hello.py` |
+| Python を実行する | VS Code の ▷ ボタン、または `uv run python scripts/sample.py` |
 | ライブラリを追加する | `uv add パッケージ名` |
 | ワールドを完全にリセットする | `docker compose down -v`（⚠️ ワールドが消えます） |
 
@@ -255,7 +255,7 @@ mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック�
 ### Python で `ModuleNotFoundError: No module named 'mcpi'` が出る
 
 `uv run` を付けずに `python` だけで実行しています。
-`uv run python samples/hello.py` のように実行してください。
+`uv run python scripts/sample.py` のように実行してください。
 それでもダメな場合は `uv sync` をもう一度実行してください。
 
 uv の人が VS Code の実行ボタンで出た場合は、右下の Python が `.venv` のものになっているか確認してください。
@@ -265,7 +265,7 @@ PC に Python が複数入っているとよく起きます。次のように、
 
 ```bash
 python3 -m pip install mcpi==1.2.1   # Windows は python -m pip ...
-python3 samples/hello.py             # Windows は python samples/hello.py
+python3 scripts/sample.py            # Windows は python scripts/sample.py
 ```
 
 VS Code の実行ボタンで出た場合は、右下の Python を、mcpi を入れた Python に選び直してください。
@@ -352,8 +352,8 @@ mcpi-java/
 ├── uv.lock                 # ライブラリのバージョン固定
 ├── .python-version         # Python のバージョン（3.12）
 ├── .gitignore
-├── samples/
-│   └── hello.py            # 動作確認用サンプル
+├── scripts/
+│   └── sample.py           # 動作確認用サンプル
 └── docs/
     ├── setup.md            # この手順書
     ├── images/

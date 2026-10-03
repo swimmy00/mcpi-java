@@ -41,8 +41,8 @@ pip install mcpi
 ## uv だとどうなる？
 
 ```bash
-uv sync                          # 準備（初回のみ）
-uv run python samples/hello.py   # 実行
+uv sync                           # 準備（初回のみ）
+uv run python scripts/sample.py   # 実行
 ```
 
 これだけです。`uv sync` が次のことを全部やってくれます。
