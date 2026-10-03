@@ -287,7 +287,7 @@ VS Code のタブ名の横に「●」が付いていたら未保存です。`Cm
 ### ログに `Unsupported class file major version` と出る
 
 Minecraft サーバーのバージョンと RaspberryJuice のバージョンが合っていません。
-`docker-compose.yml` の `VERSION` を変更した場合に起きます。
+`docker-compose.yaml` の `VERSION` を変更した場合に起きます。
 詳しくは [Paper と RaspberryJuice って何？](guide/paper-and-raspberryjuice.md) を参照してください。
 
 ### Python からつながらない（タイムアウトする、すぐ切れる）
@@ -298,7 +298,7 @@ Minecraft サーバーのバージョンと RaspberryJuice のバージョンが
 
 ## 12. 設定の詳細
 
-### docker-compose.yml
+### docker-compose.yaml
 
 | 設定 | 値 | 意味・理由 |
 |---|---|---|
@@ -344,7 +344,7 @@ RaspberryJuice の設定ファイルです。デフォルトから **`hostname` 
 ```
 mcpi-java/
 ├── README.md               # 入口（概要とクイックスタート）
-├── docker-compose.yml      # マイクラサーバーの設定
+├── docker-compose.yaml     # マイクラサーバーの設定
 ├── plugins/
 │   └── RaspberryJuice/
 │       └── config.yml      # RaspberryJuice の設定（hostname: 0.0.0.0）

@@ -71,7 +71,7 @@ RaspberryJuice の窓口には **パスワードがありません**。つなが
 そこで、Docker 側で **「自分のPCからの電話しか転送しない」** ように絞っています。
 
 ```yaml
-# docker-compose.yml
+# docker-compose.yaml
 ports:
   - "127.0.0.1:4711:4711"
 #    ^^^^^^^^^ ここが「自分のPCからだけ」という意味

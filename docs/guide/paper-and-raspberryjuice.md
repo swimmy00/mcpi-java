@@ -15,7 +15,7 @@ Minecraft のサーバーソフトにはいくつか種類があります。
 | **Paper** | 公式サーバーをもとに作られたサーバー。**プラグインで機能を追加できる**。動作も軽い |
 
 Python から操作する機能は公式サーバーには無いので、プラグインを入れられる Paper を使っています。
-`docker-compose.yml` の `TYPE: "PAPER"` がその指定です。
+`docker-compose.yaml` の `TYPE: "PAPER"` がその指定です。
 
 ## プラグインとは
 

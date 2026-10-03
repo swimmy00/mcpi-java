@@ -39,7 +39,7 @@ Pi Edition には最初から Python で操作する機能が付いていまし�
 
 ### ① `docker compose up -d` でサーバーが立ち上がる
 
-Docker が `docker-compose.yml` を読んで、次のことを自動でやってくれます。
+Docker が `docker-compose.yaml` を読んで、次のことを自動でやってくれます。
 
 1. マイクラサーバー用の「箱」（コンテナ）を作る
 2. Minecraft サーバー本体（Paper 26.2）をダウンロードする

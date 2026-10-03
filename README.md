@@ -1,14 +1,19 @@
 # mcpi-java
 
-**Minecraft Java版を Python で操作する**ための環境です。  
-自分のPCに `Docker` でマイクラサーバーを立てて、Python から `mcpi` の操作が可能になります。
+本リポジトリは、**Minecraft Java版を Python で操作する**ための配布環境です。  
+自分のPCに `Docker` でマイクラサーバーを立てることで、Python での操作が可能になります。
+
+> **背景:** `Minecraft_ライセンス版`で`mcpi環境`の構築がかなり面倒だったためリポジトリを作成。  
+> これにより、環境要因でのエラー時など、自PCを接続してトラブル対応などを行うことが可能に。
+> ※ ポート解放等はもちろん行ないませんので、ご安心ください。
+
 
 ```python
 from mcpi.minecraft import Minecraft
 mc = Minecraft.create()
 
 # チャットにコメントを表示
-mc.postToChat("swimmy is happy!!!")
+mc.postToChat("swimmy is sai-ko~!!!")
 
 # ブロックを配置
 pos = mc.player.getTilePos()
@@ -20,7 +25,7 @@ mc.setBlock(pos.x, pos.y + 2, pos.z, 46, 1)
 ![マイクラ・Docker の中のサーバー・Python（mcpi）の関係図](docs/images/architecture.svg)
 
 自分のPCの中で、Docker の箱に入ったマイクラサーバーが動いています。そこに「いつものマイクラ」と「Python」の両方がつなぎに行きます。
-詳しくは 👉 [そもそもどういう仕組み？](docs/guide/how-it-works.md)
+詳しくはこちら 👉 [そもそもどういう仕組み？](docs/guide/how-it-works.md)
 
 ## 必要なもの
 
@@ -43,9 +48,9 @@ uv sync                # Python環境の準備（初回のみ）
 1. マイクラを **バージョン 26.2** で起動して、マルチプレイ → サーバーを追加 → `localhost` に接続
 2. ワールドに入ったら、VS Code で `samples/hello.py` を開いて、右上の **▷（実行ボタン）** を押す
 
-チャットに「hogehoge」が出て、頭の上に金ブロックが置かれたら成功です 🎉
+チャットに「hogehoge」が出て、頭の上に金ブロックが置かれたら成功です！
 
-うまくいかない時や、もっと詳しい手順は 👉 **[環境構築手順書（docs/setup.md）](docs/setup.md)**
+詳細な手順は 👉 **[環境構築手順書（docs/setup.md）](docs/setup.md)** をご参照ください。
 
 ## 解説資料
 
