@@ -52,6 +52,30 @@ uv sync                # Python環境の準備（初回のみ）
 
 詳細な手順は 👉 **[環境構築手順書（docs/setup.md）](docs/setup.md)** をご参照ください。
 
+## ファイル構成
+
+```
+mcpi-java/
+├── README.md              # このページ
+├── docker-compose.yaml    # マイクラサーバーの設定（バージョン・ポートなど）
+├── plugins/
+│   └── RaspberryJuice/
+│       └── config.yml     # Python から操作するためのプラグインの設定
+├── samples/
+│   └── hello.py           # 動作確認用のサンプル ← ✏️ ここに自分のプログラムを置く
+├── pyproject.toml         # Python で使うライブラリの一覧（uv 用）
+├── uv.lock                # ライブラリのバージョン固定（uv 用）
+├── .python-version        # Python のバージョン（3.12）
+└── docs/
+    ├── setup.md           # 環境構築手順書
+    ├── guide/             # 解説資料
+    └── images/            # 図
+```
+
+> ✏️ ふだん触るのは `samples/`（Python のプログラム）だけです。それ以外は環境の設定なので、基本的に変更しなくて大丈夫です。
+>
+> 各ファイルの詳しい説明は [環境構築手順書の「13. ファイル構成」](docs/setup.md#13-ファイル構成) へ。
+
 ## 解説資料
 
 「そもそも何をしているの？」を知りたい人向けの資料です。
