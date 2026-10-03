@@ -11,9 +11,16 @@ mc = Minecraft.create()
 mc.postToChat("swimmy is happy!!!")
 
 # ブロックを配置
-pos = mc.getTilePos()
+pos = mc.player.getTilePos()
 mc.setBlock(pos.x, pos.y + 2, pos.z, 46, 1)
 ```
+
+## しくみ
+
+![マイクラ・Docker の中のサーバー・Python（mcpi）の関係図](docs/images/architecture.svg)
+
+自分のPCの中で、Docker の箱に入ったマイクラサーバーが動いています。そこに「いつものマイクラ」と「Python」の両方がつなぎに行きます。
+詳しくは 👉 [そもそもどういう仕組み？](docs/guide/how-it-works.md)
 
 ## 必要なもの
 
@@ -31,22 +38,10 @@ docker compose up -d   # サーバー起動（初回は数分かかる）
 uv sync                # Python環境の準備（初回のみ）
 ```
 
-> **💡 pip を使う場合**（`uv sync` の代わりに）
->
-> ```bash
-> python3 -m venv .venv            # Windows は python -m venv .venv
-> source .venv/bin/activate        # Mac
-> .venv\Scripts\activate           # Windows（PowerShell）
-> source .venv/Scripts/activate    # Windows（Git Bash）
-> pip install mcpi==1.2.1
-> ```
+> **💡 pip を使う場合**は、`uv sync` の代わりに `pip install mcpi` でOKです。
 
 1. マイクラを **バージョン 26.2** で起動して、マルチプレイ → サーバーを追加 → `localhost` に接続
 2. ワールドに入ったら、VS Code で `samples/hello.py` を開いて、右上の **▷（実行ボタン）** を押す
-
-> 右下に `.venv` と書かれた Python が選ばれていればOKです。違うときは、そこをクリックして `.venv` のものを選んでください。
->
-> ターミナルから実行する場合は `uv run python samples/hello.py`（pip の人は環境を有効にしてから `python samples/hello.py`）
 
 チャットに「hogehoge」が出て、頭の上に金ブロックが置かれたら成功です 🎉
 

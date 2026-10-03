@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="500" viewBox="0 0 760 500" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3c4043"/>
+    </marker>
+  </defs>
+
+  <!-- 背景（GitHub のダークモードでも読めるように白で塗る） -->
+  <rect x="0" y="0" width="760" height="500" rx="18" fill="#ffffff"/>
+
+  <!-- 自分のPC -->
+  <rect x="16" y="16" width="728" height="468" rx="16" fill="#f7f7f9" stroke="#9aa0a6" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="36" y="46" font-size="17" font-weight="bold" fill="#3c4043">自分のPC（localhost）</text>
+
+  <!-- マイクラ（ゲーム） -->
+  <rect x="40" y="80" width="230" height="96" rx="12" fill="#eef6e7" stroke="#5b8c32" stroke-width="2"/>
+  <text x="155" y="114" font-size="17" font-weight="bold" fill="#2f5216" text-anchor="middle">マイクラ（ゲーム）</text>
+  <text x="155" y="140" font-size="13" fill="#555" text-anchor="middle">いつものランチャー（26.2）</text>
+  <text x="155" y="160" font-size="13" fill="#555" text-anchor="middle">ワールドを見る・歩く</text>
+
+  <!-- Python（mcpi） -->
+  <rect x="40" y="304" width="230" height="96" rx="12" fill="#e8f0f8" stroke="#3572a5" stroke-width="2"/>
+  <text x="155" y="338" font-size="17" font-weight="bold" fill="#1f4a70" text-anchor="middle">Python（mcpi）</text>
+  <text x="155" y="364" font-size="13" fill="#555" text-anchor="middle">hello.py を実行する</text>
+  <text x="155" y="384" font-size="13" fill="#555" text-anchor="middle">サーバーに命令を送る</text>
+
+  <text x="155" y="245" font-size="13" fill="#80868b" text-anchor="middle">どちらも localhost に</text>
+  <text x="155" y="264" font-size="13" fill="#80868b" text-anchor="middle">つなぎに行く</text>
+
+  <!-- Docker の箱 -->
+  <rect x="400" y="60" width="320" height="380" rx="14" fill="#e6efff" stroke="#1d63ed" stroke-width="2"/>
+  <text x="420" y="88" font-size="15" font-weight="bold" fill="#1d4fb8">Docker の箱（コンテナ）</text>
+  <text x="420" y="108" font-size="12" fill="#4a5a75">docker compose up -d で起動する</text>
+
+  <!-- マイクラサーバー（Paper） -->
+  <rect x="424" y="124" width="272" height="100" rx="10" fill="#ffffff" stroke="#7a8699" stroke-width="2"/>
+  <text x="560" y="158" font-size="16" font-weight="bold" fill="#3c4043" text-anchor="middle">マイクラサーバー（Paper）</text>
+  <text x="560" y="182" font-size="13" fill="#555" text-anchor="middle">ワールドを管理している本体</text>
+  <text x="560" y="204" font-size="13" font-weight="bold" fill="#1d63ed" text-anchor="middle">受付：25565番</text>
+
+  <!-- RaspberryJuice -->
+  <rect x="424" y="304" width="272" height="100" rx="10" fill="#fff3e6" stroke="#e07a1f" stroke-width="2"/>
+  <text x="560" y="338" font-size="16" font-weight="bold" fill="#8a4510" text-anchor="middle">RaspberryJuice</text>
+  <text x="560" y="362" font-size="13" fill="#555" text-anchor="middle">サーバーに入れたプラグイン</text>
+  <text x="560" y="384" font-size="13" font-weight="bold" fill="#1d63ed" text-anchor="middle">受付：4711番</text>
+
+  <!-- RaspberryJuice → サーバー -->
+  <line x1="560" y1="302" x2="560" y2="228" stroke="#3c4043" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="572" y="270" font-size="12" fill="#3c4043">ワールドを書きかえる</text>
+
+  <!-- マイクラ ⇄ サーバー -->
+  <line x1="272" y1="140" x2="420" y2="140" stroke="#3c4043" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="346" y="130" font-size="12" fill="#3c4043" text-anchor="middle">25565番で接続</text>
+  <line x1="272" y1="164" x2="420" y2="164" stroke="#3c4043" stroke-width="2" stroke-dasharray="6 4" marker-start="url(#arrow)"/>
+  <text x="346" y="184" font-size="12" fill="#3c4043" text-anchor="middle">変化が画面に映る</text>
+
+  <!-- Python ⇄ RaspberryJuice -->
+  <line x1="272" y1="342" x2="420" y2="342" stroke="#3c4043" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="346" y="332" font-size="12" fill="#3c4043" text-anchor="middle">4711番に命令</text>
+  <line x1="272" y1="366" x2="420" y2="366" stroke="#3c4043" stroke-width="2" stroke-dasharray="6 4" marker-start="url(#arrow)"/>
+  <text x="346" y="386" font-size="12" fill="#3c4043" text-anchor="middle">返事（座標など）</text>
+
+  <!-- ポイント -->
+  <text x="380" y="468" font-size="13" fill="#3c4043" text-anchor="middle">ポイント：Python はゲーム画面を操作していない。サーバーに直接「ブロックを置いて」と頼んでいる</text>
+</svg>

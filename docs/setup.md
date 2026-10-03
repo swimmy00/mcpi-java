@@ -175,29 +175,22 @@ uv sync
 > **💡 pip を使う場合**（`uv sync` の代わりに）
 >
 > ```bash
-> # 1. このフォルダ専用の環境（.venv）を作る ※初回のみ
-> python3 -m venv .venv            # Windows は python -m venv .venv
->
-> # 2. 環境を有効にする ※ターミナルを開くたびに毎回必要
-> source .venv/bin/activate        # Mac
-> .venv\Scripts\activate           # Windows（PowerShell）
-> source .venv/Scripts/activate    # Windows（Git Bash）
->
-> # 3. mcpi をインストールする ※初回のみ
-> pip install mcpi==1.2.1
+> python3 -m pip install mcpi==1.2.1     # Mac
+> python -m pip install mcpi==1.2.1      # Windows
 > ```
 >
-> 有効になると、ターミナルの行の先頭に `(.venv)` と表示されます。
-> `mcpi==1.2.1` とバージョンを指定しているのは、uv の人（`uv.lock`）と同じバージョンにそろえるためです。
->
-> Windows の PowerShell で「スクリプトの実行が無効」と出たら、一度だけ `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` を実行してからやり直してください。
+> - `pip install mcpi` ではなく `python3 -m pip ...` と書いているのは、Mac だと `pip` コマンドが無く `pip3` しか無いことが多いからです。この書き方なら確実に「その Python」に入ります
+> - `mcpi==1.2.1` とバージョンを指定しているのは、uv の人（`uv.lock`）と同じバージョンにそろえるためです
+> - `error: externally-managed-environment` と出て止まった場合は、Homebrew などで入れた Python を使っています。この場合は pip ではなく uv を使ってください（[3-2](#3-2-uv) → この章の `uv sync`）
 
 ## 9. サンプルを動かす
 
 マイクラでサーバーに入った状態のまま、VS Code で `samples/hello.py` を開いて、右上の **▷（実行ボタン）** を押します。
 
-> 実行ボタンを押す前に、VS Code の右下に `3.12.x (.venv)` のように **`.venv` と書かれた Python** が選ばれているか確認してください。
-> 違うものが出ているときは、そこをクリックして `.venv` のものを選びます（uv でも pip でも同じです）。
+> 実行ボタンを押す前に、VS Code の右下に表示されている Python を確認してください。違うときは、そこをクリックして選び直します。
+>
+> - **uv の人**: `3.12.x (.venv)` のように **`.venv` と書かれた Python**
+> - **pip の人**: 手順8で mcpi をインストールした Python（3.12 以上。`.venv` ではないもの）
 
 ターミナルから実行する場合は、次のコマンドでも同じです。
 
@@ -205,7 +198,7 @@ uv sync
 uv run python samples/hello.py
 ```
 
-> **💡 pip を使う場合**: 環境を有効にしてから（`(.venv)` が出ている状態で）`python samples/hello.py`
+> **💡 pip を使う場合**: `python3 samples/hello.py`（Windows は `python samples/hello.py`）
 
 ゲーム内で次のようになれば、すべて成功です 🎉
 
@@ -224,7 +217,7 @@ pos = mc.player.getTilePos()  # 自分（プレイヤー）の位置を取得す
 mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック（ID 41）を置く
 ```
 
-> ターミナルで Python ファイルを実行するときは、必ず **`uv run python ファイル名`** の形で実行してください。
+> uv の人がターミナルで Python ファイルを実行するときは、必ず **`uv run python ファイル名`** の形で実行してください。
 > `uv run` を付けると、手順8で用意した環境（mcpi が入っている環境）で実行されます。
 > VS Code の実行ボタンなら、右下で `.venv` が選ばれていれば自動でその環境が使われます。
 
@@ -239,7 +232,7 @@ mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック�
 | ライブラリを追加する | `uv add パッケージ名` |
 | ワールドを完全にリセットする | `docker compose down -v`（⚠️ ワールドが消えます） |
 
-> **💡 pip を使う場合**: Python の実行は環境を有効にしてから `python ファイル名`、ライブラリの追加は `pip install パッケージ名` です。
+> **💡 pip を使う場合**: Python の実行は `python3 ファイル名`、ライブラリの追加は `python3 -m pip install パッケージ名` です（Windows は `python3` → `python`）。
 
 - `docker compose down` で止めても、**ワールドのデータは残ります**。次に起動すると続きから遊べます
 - このサーバーは **Docker Desktop が起動していると自動で起動する** 設定です。使わない時に止めたい場合は `docker compose down` してください
@@ -265,9 +258,17 @@ mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック�
 `uv run python samples/hello.py` のように実行してください。
 それでもダメな場合は `uv sync` をもう一度実行してください。
 
-VS Code の実行ボタンで出た場合は、右下の Python が `.venv` のものになっているか確認してください。
+uv の人が VS Code の実行ボタンで出た場合は、右下の Python が `.venv` のものになっているか確認してください。
 
-pip を使っている場合は、環境の有効化（ターミナルの先頭に `(.venv)` が出ているか）を忘れていないか確認してください。
+pip を使っている場合は、**mcpi をインストールした Python と、実行している Python が別もの** になっています。
+PC に Python が複数入っているとよく起きます。次のように、実行するのと同じ `python3` で入れ直すのが確実です。
+
+```bash
+python3 -m pip install mcpi==1.2.1   # Windows は python -m pip ...
+python3 samples/hello.py             # Windows は python samples/hello.py
+```
+
+VS Code の実行ボタンで出た場合は、右下の Python を、mcpi を入れた Python に選び直してください。
 
 ### Python で `AttributeError: 'function' object has no attribute 'postToChat'` が出る
 
@@ -355,6 +356,8 @@ mcpi-java/
 │   └── hello.py            # 動作確認用サンプル
 └── docs/
     ├── setup.md            # この手順書
+    ├── images/
+    │   └── architecture.svg  # 仕組みの図
     └── guide/              # 解説資料
         ├── how-it-works.md
         ├── docker.md
