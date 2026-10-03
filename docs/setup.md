@@ -43,6 +43,9 @@ Minecraft Java版を Python（`mcpi`）で操作できるようにするまで�
 | uv | Python と mcpi を用意する | 無料（[uvって何？](guide/uv.md)）。Python 本体は別途インストール不要 |
 | Git | このリポジトリを取ってくる | ZIP でダウンロードするなら不要 |
 | ターミナル | コマンドを打つ | Mac は「ターミナル」、Windows は「PowerShell」。VS Code 内のターミナルでもOK |
+| VS Code ＋ Python 拡張機能 | Python ファイルを書いて実行する | 無料・おすすめ。拡張機能は VS Code の「拡張機能」で `Python`（Microsoft 製）を検索して入れる |
+
+> **💡 pip を使う場合**: uv の代わりに pip でも動きます。その場合は **Python 3.12 以上** を自分でインストールしておいてください（[python.org](https://www.python.org/downloads/)）。
 
 > この手順書のコマンドは Mac / Windows どちらでも同じように使えます。
 
@@ -84,6 +87,8 @@ uv --version
 ```
 
 > Mac で Homebrew を使っているなら `brew install uv` でもOKです。
+
+> **💡 pip を使う場合**: この手順（uv のインストール）は飛ばしてOKです。代わりに `python3 --version`（Windows は `python --version`）で 3.12 以上が表示されるか確認してください。
 
 ### 3-3. Git（必要な人だけ）
 
@@ -167,13 +172,40 @@ uv sync
 
 `Installed 1 package` のように表示されれば完了です。**初回だけ** 実行すればOKです。
 
+> **💡 pip を使う場合**（`uv sync` の代わりに）
+>
+> ```bash
+> # 1. このフォルダ専用の環境（.venv）を作る ※初回のみ
+> python3 -m venv .venv            # Windows は python -m venv .venv
+>
+> # 2. 環境を有効にする ※ターミナルを開くたびに毎回必要
+> source .venv/bin/activate        # Mac
+> .venv\Scripts\activate           # Windows（PowerShell）
+> source .venv/Scripts/activate    # Windows（Git Bash）
+>
+> # 3. mcpi をインストールする ※初回のみ
+> pip install mcpi==1.2.1
+> ```
+>
+> 有効になると、ターミナルの行の先頭に `(.venv)` と表示されます。
+> `mcpi==1.2.1` とバージョンを指定しているのは、uv の人（`uv.lock`）と同じバージョンにそろえるためです。
+>
+> Windows の PowerShell で「スクリプトの実行が無効」と出たら、一度だけ `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` を実行してからやり直してください。
+
 ## 9. サンプルを動かす
 
-マイクラでサーバーに入った状態のまま、ターミナルで次を実行します。
+マイクラでサーバーに入った状態のまま、VS Code で `samples/hello.py` を開いて、右上の **▷（実行ボタン）** を押します。
+
+> 実行ボタンを押す前に、VS Code の右下に `3.12.x (.venv)` のように **`.venv` と書かれた Python** が選ばれているか確認してください。
+> 違うものが出ているときは、そこをクリックして `.venv` のものを選びます（uv でも pip でも同じです）。
+
+ターミナルから実行する場合は、次のコマンドでも同じです。
 
 ```bash
 uv run python samples/hello.py
 ```
+
+> **💡 pip を使う場合**: 環境を有効にしてから（`(.venv)` が出ている状態で）`python samples/hello.py`
 
 ゲーム内で次のようになれば、すべて成功です 🎉
 
@@ -192,8 +224,9 @@ pos = mc.player.getTilePos()  # 自分（プレイヤー）の位置を取得す
 mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック（ID 41）を置く
 ```
 
-> Python ファイルを実行するときは、必ず **`uv run python ファイル名`** の形で実行してください。
+> ターミナルで Python ファイルを実行するときは、必ず **`uv run python ファイル名`** の形で実行してください。
 > `uv run` を付けると、手順8で用意した環境（mcpi が入っている環境）で実行されます。
+> VS Code の実行ボタンなら、右下で `.venv` が選ばれていれば自動でその環境が使われます。
 
 ## 10. ふだんの使い方
 
@@ -202,9 +235,11 @@ mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック�
 | サーバーを起動する | `docker compose up -d` |
 | サーバーを止める | `docker compose down` |
 | ログを見る | `docker compose logs -f`（`Ctrl + C` で終了） |
-| Python を実行する | `uv run python samples/hello.py` |
+| Python を実行する | VS Code の ▷ ボタン、または `uv run python samples/hello.py` |
 | ライブラリを追加する | `uv add パッケージ名` |
 | ワールドを完全にリセットする | `docker compose down -v`（⚠️ ワールドが消えます） |
+
+> **💡 pip を使う場合**: Python の実行は環境を有効にしてから `python ファイル名`、ライブラリの追加は `pip install パッケージ名` です。
 
 - `docker compose down` で止めても、**ワールドのデータは残ります**。次に起動すると続きから遊べます
 - このサーバーは **Docker Desktop が起動していると自動で起動する** 設定です。使わない時に止めたい場合は `docker compose down` してください
@@ -229,6 +264,10 @@ mc.setBlock(pos.x, pos.y+2, pos.z, 41)  # 頭の上（y+2）に金ブロック�
 `uv run` を付けずに `python` だけで実行しています。
 `uv run python samples/hello.py` のように実行してください。
 それでもダメな場合は `uv sync` をもう一度実行してください。
+
+VS Code の実行ボタンで出た場合は、右下の Python が `.venv` のものになっているか確認してください。
+
+pip を使っている場合は、環境の有効化（ターミナルの先頭に `(.venv)` が出ているか）を忘れていないか確認してください。
 
 ### Python で `AttributeError: 'function' object has no attribute 'postToChat'` が出る
 

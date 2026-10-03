@@ -6,14 +6,21 @@
 ```python
 from mcpi.minecraft import Minecraft
 mc = Minecraft.create()
-mc.postToChat("hogehoge")  # ゲーム内のチャットに表示される
+
+# チャットにコメントを表示
+mc.postToChat("swimmy is happy!!!")
+
+# ブロックを配置
+pos = mc.getTilePos()
+mc.setBlock(pos.x, pos.y + 2, pos.z, 46, 1)
 ```
 
 ## 必要なもの
 
 - Minecraft Java版（購入済みのアカウント）
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- [uv](https://docs.astral.sh/uv/)
+- [uv](https://docs.astral.sh/uv/)（pip でもOK。その場合は Python 3.12 以上が必要）
+- [VS Code](https://code.visualstudio.com/) ＋ [Python 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-python.python)（おすすめ）
 
 ## クイックスタート
 
@@ -24,12 +31,22 @@ docker compose up -d   # サーバー起動（初回は数分かかる）
 uv sync                # Python環境の準備（初回のみ）
 ```
 
-1. マイクラを **バージョン 26.2** で起動して、マルチプレイ → サーバーを追加 → `localhost` に接続
-2. ワールドに入ったら、ターミナルで次を実行
+> **💡 pip を使う場合**（`uv sync` の代わりに）
+>
+> ```bash
+> python3 -m venv .venv            # Windows は python -m venv .venv
+> source .venv/bin/activate        # Mac
+> .venv\Scripts\activate           # Windows（PowerShell）
+> source .venv/Scripts/activate    # Windows（Git Bash）
+> pip install mcpi==1.2.1
+> ```
 
-```bash
-uv run python samples/hello.py
-```
+1. マイクラを **バージョン 26.2** で起動して、マルチプレイ → サーバーを追加 → `localhost` に接続
+2. ワールドに入ったら、VS Code で `samples/hello.py` を開いて、右上の **▷（実行ボタン）** を押す
+
+> 右下に `.venv` と書かれた Python が選ばれていればOKです。違うときは、そこをクリックして `.venv` のものを選んでください。
+>
+> ターミナルから実行する場合は `uv run python samples/hello.py`（pip の人は環境を有効にしてから `python samples/hello.py`）
 
 チャットに「hogehoge」が出て、頭の上に金ブロックが置かれたら成功です 🎉
 
