@@ -1,0 +1,8 @@
+[project]
+name = "mcpi-java"
+version = "0.1.0"
+description = "Minecraft Java版 + RaspberryJuice で mcpi を動かすためのPython環境"
+requires-python = ">=3.12"
+dependencies = [
+    "mcpi",
+]
