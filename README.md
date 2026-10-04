@@ -25,6 +25,7 @@ mcpi-java/
 ├── .python-version        # Python のバージョン（3.12）
 └── docs/
     ├── setup.md           # 環境構築手順書
+    ├── references.md      # 公式ドキュメント・リファレンス集
     ├── guide/             # 解説資料
     └── images/            # 図
 ```
@@ -93,6 +94,16 @@ uv sync                # Python環境の準備（初回のみ）
 | [localhost とポートって何？](docs/guide/localhost-and-ports.md) | `localhost:4711` の意味。いちばんハマりやすいところ |
 | [Paper と RaspberryJuice って何？](docs/guide/paper-and-raspberryjuice.md) | マイクラサーバー本体と、Python から操作するためのプラグイン |
 | [uv って何？ pip と何が違うの？](docs/guide/uv.md) | Python の環境をみんなで同じにする道具の話 |
+
+## 参考リンク
+
+| | |
+|---|---|
+| mcpi | [API リファレンス（命令の一覧）](https://www.stuffaboutcode.com/p/minecraft-api-reference.html) / [PyPI](https://pypi.org/project/mcpi/) / [GitHub](https://github.com/martinohanlon/mcpi) |
+| サーバー | [Paper](https://docs.papermc.io/) / [RaspberryJuice](https://github.com/sakebomb/RaspberryJuice) / [itzg/docker-minecraft-server](https://docker-minecraft-server.readthedocs.io/) |
+| 道具 | [Docker Desktop](https://docs.docker.com/desktop/) / [Docker Compose](https://docs.docker.com/compose/) / [uv](https://docs.astral.sh/uv/) |
+
+その他のリンクは 👉 [公式ドキュメント・リファレンス集（docs/references.md）](docs/references.md)
 
 ## ライセンス
 

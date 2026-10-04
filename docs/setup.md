@@ -366,6 +366,7 @@ mcpi-java/
 │   └── sample.py           # 動作確認用サンプル
 └── docs/
     ├── setup.md            # この手順書
+    ├── references.md       # 公式ドキュメント・リファレンス集
     ├── images/
     │   └── architecture.svg  # 仕組みの図
     └── guide/              # 解説資料
