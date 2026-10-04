@@ -67,7 +67,7 @@ mc.setBlock(pos.x, pos.y + 2, pos.z, 46, 1)
 ### 手順
 
 ```bash
-git clone <このリポジトリのURL>
+git clone https://github.com/swimmy00/mcpi-java.git
 cd mcpi-java
 docker compose up -d   # サーバー起動（初回は数分かかる）
 uv sync                # Python環境の準備（初回のみ）

@@ -98,7 +98,7 @@ uv --version
 ## 4. リポジトリを手元に持ってくる
 
 ```bash
-git clone <このリポジトリのURL>
+git clone https://github.com/swimmy00/mcpi-java.git
 cd mcpi-java
 ```
 
